@@ -4,7 +4,7 @@ const fs = require('fs');
 // empty array to push team 
 teamMembers = [];
 
-const questions = () => {
+const managerQuestions = () => {
   inquirer
     .prompt([
     {
@@ -39,6 +39,7 @@ const questions = () => {
     }
   ])
   .then((responses) => {
+    const employee = new Employee (responses);
     switch (responses.employeeType){
       case 'Engineer': engineerQuestions();
       break;
@@ -85,9 +86,9 @@ const engineerQuestions = () => {
     ])
     .then((engineerResponses) => {
       switch (engineerResponses.employeeType){
-        case 'Engineer': engineerQuestions()
+        case 'Engineer': engineerQuestions();
         break;
-        case 'Intern': internQuestions()
+        case 'Intern': internQuestions();
         break;
         default: 
       }
@@ -130,21 +131,16 @@ const internQuestions = () => {
     ])
     .then((internResponses) => {
       switch (internResponses.employeeType){
-        case 'Engineer': engineerQuestions()
+        case 'Engineer': engineerQuestions();
         break;
-        case 'Intern': internQuestions()
+        case 'Intern': internQuestions();
         break;
         default: 
       }
     })
 }
 
-
-questions ();
-
-
-    
-
+managerQuestions ();
 
 // // function to write html file 
 // function writeToFile(fileName, data) {
@@ -164,90 +160,4 @@ questions ();
 // // call initializing function
 // init();
 
-// module.exports = questions; 
 
-// const questions = () => {
-//   return inquirer.prompt([{
-//       type: 'input',
-//       name: `manager_name`,
-//       message: `What is the team manager's name?`
-//     },
-//     {
-//       type: 'input',
-//       name: `manager_employee_id`,
-//       message: `What is the team manager's employee id?`
-//     },
-//     {
-//       type: 'input',
-//       name: `manager_email_address`,
-//       message: `What is the team manager's email address?`
-//     },
-//     {
-//       type: 'input',
-//       name: `manager_office_number`,
-//       message: `What is the team manager's office number?`
-//     },
-//     {
-//       type: 'list',
-//       name: 'type_of_employee',
-//       message: 'What type of team member would you like to add?',
-//       choices: [
-//         'Engineer',
-//         'Intern',
-//         'None'
-//       ]
-//     },
-//   ]).then((data) => {
-//     if (data.type_of_employee === 'Engineer') {
-//       inquirer.prompt([{
-//           type: 'input',
-//           name: `engineer_name`,
-//           message: `Engineer's name?`
-//         },
-//         {
-//           type: 'input',
-//           name: `engineer_id`,
-//           message: `Engineer's employee id?`
-//         },
-//         {
-//           type: 'input',
-//           name: `engineer_email_address`,
-//           message: `Engineer's email address?`
-//         },
-//         {
-//           type: 'input',
-//           name: `engineer_gitHub_username`,
-//           message: `Engineer's Github?`
-//         }
-//       ]).then(() => {
-//         generateHTML()
-//       })
-//     } else if (data.type_of_employee === 'Intern') {
-//       inquirer.prompt([{
-//           type: 'input',
-//           name: `intern_name`,
-//           message: `Intern's name?`
-//         },
-//         {
-//           type: 'input',
-//           name: `intern_id`,
-//           message: `Intern's employee id?`
-//         },
-//         {
-//           type: 'input',
-//           name: `intern_email_address`,
-//           message: `intern's email address?`
-//         },
-//         {
-//           type: 'input',
-//           name: `intern_school`,
-//           message: `intern's school?`
-//         }
-//       ]).then(() => {
-//         generateHTML()
-//       })
-//     } else {
-//       generateHTML()
-//     };
-//   }).catch((err) => console.error(err))
-// };
