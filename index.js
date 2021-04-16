@@ -1,7 +1,10 @@
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// empty array to push team 
+// empty array to push team into 
 teamMembers = [];
 
 const managerQuestions = () => {
@@ -27,26 +30,14 @@ const managerQuestions = () => {
       name: `phoneNumber`,
       message: `What is the team manager's office number?`
     }, 
-    {
-      type: 'list',
-      name: 'employeeType',
-      message: 'Which type of team member would you like to add?',
-      choices: [
-        'Engineer',
-        'Intern',
-        'Done'
-      ]
-    }
   ])
   .then((responses) => {
-    const employee = new Employee (responses);
-    switch (responses.employeeType){
-      case 'Engineer': engineerQuestions();
-      break;
-      case 'Intern': internQuestions();
-      break;
-      default: 
-    }
+    console.log(responses);
+    const manager = new Manager(responses.id, responses.name, responses.email, responses.phoneNumber);
+    console.log(manager);
+    teamMembers.push(manager)
+    // console.log(teamMembers)
+    employeeType()
   });
 };
 
@@ -73,25 +64,12 @@ const engineerQuestions = () => {
       name: `engineerGitHub`,
       message: `Engineer's Github username?`
     },
-    {
-      type: 'list',
-      name: 'employeeType',
-      message: 'Which type of team member would you like to add next?',
-      choices: [
-        'Engineer',
-        'Intern',
-        'Done'
-      ]
-    }
     ])
     .then((engineerResponses) => {
-      switch (engineerResponses.employeeType){
-        case 'Engineer': engineerQuestions();
-        break;
-        case 'Intern': internQuestions();
-        break;
-        default: 
-      }
+      console.log(engineerResponses);
+      const engineer = new Engineer(engineerResponses.engineerName, engineerResponses.engineerId, engineerResponses.engineerEmailAddress, engineerResponses.engineerGitHub);
+      teamMembers.push(engineer)
+      employeeType()
     })
 }
 
@@ -118,6 +96,19 @@ const internQuestions = () => {
         name: `internSchool`,
         message: `Intern's school?`
       },
+    ])
+    .then((internResponses) => {
+      console.log(internResponses)
+      const intern = new Intern (internResponses.internName, internResponses.internId, internResponses.internEmailAddress, internResponses.internSchool);
+      teamMembers.push(intern);
+      employeeType()
+    })
+}
+
+
+function employeeType(){
+  inquirer
+    .prompt([
       {
         type: 'list',
         name: 'employeeType',
@@ -128,9 +119,8 @@ const internQuestions = () => {
           'Done'
         ]
       }
-    ])
-    .then((internResponses) => {
-      switch (internResponses.employeeType){
+    ]).then((responses) => {
+      switch (responses.employeeType){
         case 'Engineer': engineerQuestions();
         break;
         case 'Intern': internQuestions();
