@@ -131,24 +131,25 @@ function employeeType(){
     })
 }
 
+managerQuestions();
 
 // function to write html file 
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, (error) => {
-    if(error) throw error;
-    console.log('file saved')
-  });
-};
+// function writeToFile(fileName, data) {
+//   fs.writeFile(fileName, data, (error) => {
+//     if(error) throw error;
+//     console.log('file saved')
+//   });
+// };
 
-// function to initialize app 
-function init() {
-  managerQuestions()
-    .then((data) => writeToFile('index.html', generateMarkup(data)))
-    .then(() => console.log('Successfully wrote Team.html!'))
-    .catch((err) => console.error(err))
-};
+// // function to initialize app 
+// function init() {
+//   managerQuestions()
+//     .then((data) => writeToFile('index.html', generateMarkup(data)))
+//     .then(() => console.log('Successfully wrote Team.html!'))
+//     .catch((err) => console.error(err))
+// };
 
-// call initializing function
-init();
+// // call initializing function
+// init();
 
-
+module.exports = teamMembers;
