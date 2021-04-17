@@ -3,6 +3,7 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkup = require('./src/Team')
 
 // empty array to push team into 
 teamMembers = [];
@@ -130,24 +131,24 @@ function employeeType(){
     })
 }
 
-managerQuestions ();
 
-// // function to write html file 
-// function writeToFile(fileName, data) {
-//   fs.writeFile(fileName, data, (error) => {
-//     console.log('file saved')
-//   });
-// };
+// function to write html file 
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (error) => {
+    if(error) throw error;
+    console.log('file saved')
+  });
+};
 
-// // function to initialize app 
-// function init() {
-//   questions()
-//     .then((data) => writeToFile('Team.html', generateHTML(data)))
-//     .then(() => console.log('Successfully wrote Team.html!'))
-//     .catch((err) => console.error(err))
-// };
+// function to initialize app 
+function init() {
+  managerQuestions()
+    .then((data) => writeToFile('index.html', generateMarkup(data)))
+    .then(() => console.log('Successfully wrote Team.html!'))
+    .catch((err) => console.error(err))
+};
 
-// // call initializing function
-// init();
+// call initializing function
+init();
 
 
