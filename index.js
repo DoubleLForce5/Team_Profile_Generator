@@ -39,17 +39,17 @@ const managerQuestions = () => {
     console.log(manager);
     teamMembers.push(manager)
     employeeType()
-    function generateCards(){
-      let cards = []
+    // function generateCards(){
+    //   let cards = []
       for(let i = 0; i < teamMembers.length; i++){
         const teamArray = teamMembers[i];
         switch(teamArray.role){
-          case "Manager": cards.push(manager.generateCard())
+          case "Manager": manager.generateCard()
           break;
-          case "Engineer": cards.push(engineer.generateCard())
+          case "Engineer": engineer.generateCard()
           break;
-          case "Intern": cards.push(intern.generateCard())
-        }
+          case "Intern": intern.generateCard()
+        // }
       }
     }
     // for loop / call functions 
@@ -147,7 +147,7 @@ function employeeType(){
         break;
         case 'Intern': internQuestions();
         break;
-        default: writeToFile('dist/index.html', teams.generateMarkup(teamMembers))
+        default: writeToFile('dist/index.html', teams(teamMembers))
       }
     })
 }
