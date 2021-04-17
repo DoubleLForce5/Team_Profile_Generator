@@ -7,6 +7,7 @@ const teams = require('./src/Team')
 
 // empty array to push team into 
 teamMembers = [];
+letCards = [];
 
 const managerQuestions = () => {
   inquirer
@@ -38,9 +39,21 @@ const managerQuestions = () => {
     console.log(manager);
     teamMembers.push(manager)
     employeeType()
+    function generateCards(){
+      let cards = []
+      for(let i = 0; i < teamMembers.length; i++){
+        const teamArray = teamMembers[i];
+        switch(teamArray.role){
+          case "Manager": cards.push(manager.generateCard())
+          break;
+          case "Engineer": cards.push(engineer.generateCard())
+          break;
+          case "Intern": cards.push(intern.generateCard())
+        }
+      }
+    }
     // for loop / call functions 
     // push all new html to larger html file 
-    writeToFile('dist/index.html', teams.generateMarkup(responses))
     // .then(() => console.log('Successfully wrote Team.html!'))
     // .catch((err) => console.error(err))
     console.log(JSON.stringify(teamMembers))
@@ -134,11 +147,10 @@ function employeeType(){
         break;
         case 'Intern': internQuestions();
         break;
-        default:
+        default: writeToFile('dist/index.html', teams.generateMarkup(teamMembers))
       }
     })
 }
-
 
 // function to write html file 
 function writeToFile(fileName, data) {
