@@ -3,7 +3,7 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkup = require('./src/Team')
+const teams = require('./src/Team')
 
 // empty array to push team into 
 teamMembers = [];
@@ -37,8 +37,13 @@ const managerQuestions = () => {
     const manager = new Manager(responses.id, responses.name, responses.email, responses.phoneNumber);
     console.log(manager);
     teamMembers.push(manager)
-    // console.log(teamMembers)
     employeeType()
+    // for loop / call functions 
+    // push all new html to larger html file 
+    writeToFile('dist/index.html', teams.generateMarkup(responses))
+    // .then(() => console.log('Successfully wrote Team.html!'))
+    // .catch((err) => console.error(err))
+    console.log(JSON.stringify(teamMembers))
   });
 };
 
@@ -71,6 +76,7 @@ const engineerQuestions = () => {
       const engineer = new Engineer(engineerResponses.engineerName, engineerResponses.engineerId, engineerResponses.engineerEmailAddress, engineerResponses.engineerGitHub);
       teamMembers.push(engineer)
       employeeType()
+      console.log(JSON.stringify(teamMembers))
     })
 }
 
@@ -103,9 +109,11 @@ const internQuestions = () => {
       const intern = new Intern (internResponses.internName, internResponses.internId, internResponses.internEmailAddress, internResponses.internSchool);
       teamMembers.push(intern);
       employeeType()
+      console.log(JSON.stringify(teamMembers))
     })
 }
 
+// pars string - duplicate over multiple instances 
 
 function employeeType(){
   inquirer
@@ -126,30 +134,33 @@ function employeeType(){
         break;
         case 'Intern': internQuestions();
         break;
-        default: 
+        default:
       }
     })
 }
 
-managerQuestions();
 
 // function to write html file 
-// function writeToFile(fileName, data) {
-//   fs.writeFile(fileName, data, (error) => {
-//     if(error) throw error;
-//     console.log('file saved')
-//   });
-// };
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (error) => {
+    if(error) throw error;
+    console.log('file saved')
+  });
+};
 
-// // function to initialize app 
+managerQuestions();
+
+// // // function to initialize app 
 // function init() {
 //   managerQuestions()
-//     .then((data) => writeToFile('index.html', generateMarkup(data)))
-//     .then(() => console.log('Successfully wrote Team.html!'))
-//     .catch((err) => console.error(err))
+  
+//     // .then((data) =>writeToFile('index.html', teams.generateMarkup(data))) 
+//     // .then(() => console.log('Successfully wrote Team.html!'))
+//     // .catch((err) => console.error(err))
 // };
 
-// // call initializing function
+// // // call initializing function
 // init();
 
-module.exports = teamMembers;
+// module.exports = teamMembers;
+// teams.hello(); 
