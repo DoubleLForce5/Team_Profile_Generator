@@ -24,8 +24,9 @@ let cards = []
           cards.push(generateInternCard(intern));
       }
     } 
-    console.log(cards)
-    return cards.join
+   
+    return cards.join(``)
+    // console.log(cards.join(""))
   }
 
 let generateManagerCard = (Manager) => {  
