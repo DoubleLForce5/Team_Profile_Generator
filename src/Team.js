@@ -26,7 +26,6 @@ let cards = []
     } 
    
     return cards.join(``)
-    // console.log(cards.join(""))
   }
 
 let generateManagerCard = (Manager) => {  

@@ -7,7 +7,6 @@ const teams = require('./src/Team')
 
 // empty array to push team into 
 teamMembers = [];
-// letCards = [];
 
 const managerQuestions = () => {
   inquirer
@@ -39,23 +38,6 @@ const managerQuestions = () => {
     console.log(manager);
     teamMembers.push(manager)
     employeeType()
-    // // function generateCards(){
-    // //   let cards = []
-    //   for(let i = 0; i < teamMembers.length; i++){
-    //     const teamArray = teamMembers[i];
-    //     switch(teamArray.role){
-    //       case "Manager": manager.generateManagerCard()
-    //       break;
-    //       case "Engineer": engineer.generateEngineerCard()
-    //       break;
-    //       case "Intern": intern.generateInternCard()
-    //     // }
-    //   }
-    // }
-    // for loop / call functions 
-    // push all new html to larger html file 
-    // .then(() => console.log('Successfully wrote Team.html!'))
-    // .catch((err) => console.error(err))
     console.log(JSON.stringify(teamMembers))
   });
 };
