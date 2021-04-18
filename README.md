@@ -3,6 +3,8 @@
 ## Description
 This application was created to give managers easy access to their team's contact information. 
 
+![photo](https://user-images.githubusercontent.com/73543476/115155121-10805c00-a044-11eb-8aa9-b7b947f35a02.png)
+
 ## Installation / Usage Instructions: 
 - To utilize this application you will need Node.js.
 - Clone this repository and open it within VS Code or any text editor of your choosing.
