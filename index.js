@@ -39,19 +39,19 @@ const managerQuestions = () => {
     console.log(manager);
     teamMembers.push(manager)
     employeeType()
-    // function generateCards(){
-    //   let cards = []
-      for(let i = 0; i < teamMembers.length; i++){
-        const teamArray = teamMembers[i];
-        switch(teamArray.role){
-          case "Manager": manager.generateCard()
-          break;
-          case "Engineer": engineer.generateCard()
-          break;
-          case "Intern": intern.generateCard()
-        // }
-      }
-    }
+    // // function generateCards(){
+    // //   let cards = []
+    //   for(let i = 0; i < teamMembers.length; i++){
+    //     const teamArray = teamMembers[i];
+    //     switch(teamArray.role){
+    //       case "Manager": manager.generateManagerCard()
+    //       break;
+    //       case "Engineer": engineer.generateEngineerCard()
+    //       break;
+    //       case "Intern": intern.generateInternCard()
+    //     // }
+    //   }
+    // }
     // for loop / call functions 
     // push all new html to larger html file 
     // .then(() => console.log('Successfully wrote Team.html!'))
@@ -65,28 +65,29 @@ const engineerQuestions = () => {
     .prompt([
     {
       type: 'input',
-      name: `engineerName`,
+      name: `name`,
       message: `Engineer's name?`
     },
     {
       type: 'input',
-      name: `engineerId`,
+      name: `id`,
       message: `Engineer's employee id?`
     },
     {
       type: 'input',
-      name: `engineerEmailAddress`,
+      name: `email`,
       message: `Engineer's email address?`
     },
     {
       type: 'input',
-      name: `engineerGitHub`,
+      name: `gitHub`,
       message: `Engineer's Github username?`
     },
     ])
     .then((engineerResponses) => {
       console.log(engineerResponses);
-      const engineer = new Engineer(engineerResponses.engineerName, engineerResponses.engineerId, engineerResponses.engineerEmailAddress, engineerResponses.engineerGitHub);
+      const engineer = new Engineer(engineerResponses.id, engineerResponses.name, engineerResponses.email, engineerResponses.gitHub);
+      console.log(engineer)
       teamMembers.push(engineer)
       employeeType()
       console.log(JSON.stringify(teamMembers))
@@ -126,8 +127,6 @@ const internQuestions = () => {
     })
 }
 
-// pars string - duplicate over multiple instances 
-
 function employeeType(){
   inquirer
     .prompt([
@@ -161,18 +160,3 @@ function writeToFile(fileName, data) {
 };
 
 managerQuestions();
-
-// // // function to initialize app 
-// function init() {
-//   managerQuestions()
-  
-//     // .then((data) =>writeToFile('index.html', teams.generateMarkup(data))) 
-//     // .then(() => console.log('Successfully wrote Team.html!'))
-//     // .catch((err) => console.error(err))
-// };
-
-// // // call initializing function
-// init();
-
-// module.exports = teamMembers;
-// teams.hello(); 
