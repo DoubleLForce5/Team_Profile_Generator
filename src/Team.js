@@ -2,7 +2,7 @@ const Engineer = require("../lib/Engineer");
 const Intern = require("../lib/Intern");
 const Manager = require("../lib/Manager");
 
-// let cards = []
+let cards = []
 
     function generateCards(teamMembers){
     console.log(teamMembers)
@@ -102,5 +102,6 @@ ${generateCards(teamMembers)}
 </body>
 </html>`
 }
+
 
 module.exports = generateMarkup
