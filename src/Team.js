@@ -10,15 +10,15 @@ const Manager = require("../lib/Manager");
       switch(teamArray.role){
         case "Manager": 
           const manager = new Manager(teamArray.id, teamArray.name, teamArray.email, teamArray.officeNumber);
-          generateManagerCard();
+          manager.generateManagerCard();
         break;
         case "Engineer": 
           const engineer = new Engineer(teamArray.id, teamArray.name, teamArray.email, teamArray.github);
-          generateEngineerCard();
+          engineer.generateEngineerCard();
         break;
         case "Intern": 
           const intern = new Intern(teamArray.id, teamArray.name, teamArray.email, teamArray.school);
-          generateInternCard();
+          intern.generateInternCard();
       }
     }
   }
