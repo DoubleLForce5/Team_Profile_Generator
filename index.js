@@ -120,7 +120,7 @@ const internQuestions = () => {
     ])
     .then((internResponses) => {
       console.log(internResponses)
-      const intern = new Intern (internResponses.internName, internResponses.internId, internResponses.internEmailAddress, internResponses.internSchool);
+      const intern = new Intern (internResponses.internId, internResponses.internName, internResponses.internEmailAddress, internResponses.internSchool);
       teamMembers.push(intern);
       employeeType()
       console.log(JSON.stringify(teamMembers))
