@@ -30,10 +30,10 @@ let cards = []
   }
 
 let generateManagerCard = (Manager) => {  
-return ` <div class="card team-member-card">
-<div class="card-header">
+return ` <div class="card m-1 shadow p-3 mb-5 bg-white rounded team-member-card" style="width:18rem">
+<div class="card-header" style="width:18rem">
   <h2 class="card-title">${Manager.getName()}</h2>
-  <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${Manager.getRole()}</h3>
+  <h3 class="card-title"><i class="fa fa-coffee"></i> ${Manager.getRole()}</h3>
 </div>
 <div class="card-body">
   <ul class="list-group list-group-flush">
@@ -46,10 +46,10 @@ return ` <div class="card team-member-card">
 };
 
 let generateEngineerCard = (Engineer) => {
-  return `<div class="card team-member-card">
-  <div class="card-header">
+  return `<div class="card m-1 shadow p-3 mb-5 bg-white rounded team-member-card" style="width:18rem">
+  <div class="card-header" style="width:18rem">
     <h2 class="card-title">${Engineer.getName()}</h2>
-    <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${Engineer.getRole()}</h3>
+    <h3 class="card-title"><i class="fa fa-laptop"></i> ${Engineer.getRole()}</h3>
   </div>
   <div class="card-body">
     <ul class="list-group list-group-flush">
@@ -62,10 +62,10 @@ let generateEngineerCard = (Engineer) => {
 };
 
 let generateInternCard = (Intern) => {
-  return `<div class="card team-member-card">
-  <div class="card-header">
+  return `<div class="card m-1 shadow p-3 mb-5 bg-white rounded team-member-card" style="width:18rem">
+  <div class="card-header" style="width:18rem">
     <h2 class="card-title">${Intern.getName()}</h2>
-    <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${Intern.getRole()}</h3>
+    <h3 class="card-title"><i class="fa fa-graduation-cap"></i> ${Intern.getRole()}</h3>
   </div>
   <div class="card-body">
     <ul class="list-group list-group-flush">
@@ -86,18 +86,20 @@ return `<!DOCTYPE html>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
   <title>My Team</title>
 </head>
 <body>
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid p-3 mb-2 bg-warning text-dark">
   <div class="container">
     <h1 class="display-4">My Team</h1>
   </div>
 </div>
-<div>
+<div class="main d-flex justify-content-around">
 ${generateCards(teamMembers)}
 </div>
-  
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
