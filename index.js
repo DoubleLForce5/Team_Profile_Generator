@@ -7,7 +7,7 @@ const teams = require('./src/Team')
 
 // empty array to push team into 
 teamMembers = [];
-letCards = [];
+// letCards = [];
 
 const managerQuestions = () => {
   inquirer
@@ -155,7 +155,7 @@ function employeeType(){
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (error) => {
     if(error) throw error;
-    console.log('file saved')
+    console.log(data)
   });
 };
 

@@ -2,25 +2,30 @@ const Engineer = require("../lib/Engineer");
 const Intern = require("../lib/Intern");
 const Manager = require("../lib/Manager");
 
+// let cards = []
 
     function generateCards(teamMembers){
+    console.log(teamMembers)
+    let cards = []
     for(let i = 0; i < teamMembers.length; i++){
       const teamArray = teamMembers[i];
-      console.log(teamArray)
-      switch(teamArray.role){
+      console.log(teamArray.getRole())
+      switch(teamArray.getRole()){
         case "Manager": 
           const manager = new Manager(teamArray.id, teamArray.name, teamArray.email, teamArray.officeNumber);
-          manager.generateManagerCard();
-        break;
+          cards.push(generateManagerCard(manager));
+          break;
         case "Engineer": 
           const engineer = new Engineer(teamArray.id, teamArray.name, teamArray.email, teamArray.github);
-          engineer.generateEngineerCard();
-        break;
+          cards.push(generateEngineerCard(engineer));
+           break;
         case "Intern": 
           const intern = new Intern(teamArray.id, teamArray.name, teamArray.email, teamArray.school);
-          intern.generateInternCard();
+          cards.push(generateInternCard(intern));
       }
-    }
+    } 
+    console.log(cards)
+    return cards.join
   }
 
 let generateManagerCard = (Manager) => {  
@@ -33,12 +38,11 @@ return ` <div class="card team-member-card">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${Manager.getId()}</li>
     <li class="list-group-item">Email: ${Manager.getEmail()}</li>
-    <li class="list-group-item">office number: ${Manager.officeNumber()}</li>
+    <li class="list-group-item">office number: ${Manager.getOfficeNumber()}</li>
   </ul>
 </div>
 </div>`
 };
-
 
 let generateEngineerCard = (Engineer) => {
   return `<div class="card team-member-card">
@@ -50,7 +54,7 @@ let generateEngineerCard = (Engineer) => {
     <ul class="list-group list-group-flush">
       <li class="list-group-item">ID: ${Engineer.getId()}</li>
       <li class="list-group-item">Email: ${Engineer.getEmail()}</li>
-      <li class="list-group-item">Github: ${Engineer.github()}</li>
+      <li class="list-group-item">Github: ${Engineer.getGithub()}</li>
     </ul>
   </div>
 </div>`
@@ -66,12 +70,11 @@ let generateInternCard = (Intern) => {
     <ul class="list-group list-group-flush">
       <li class="list-group-item">ID: ${Intern.getId()}</li>
       <li class="list-group-item">Email: ${Intern.getEmail()}</li>
-      <li class="list-group-item">School: ${Intern.school()}</li>
+      <li class="list-group-item">School: ${Intern.getSchool()}</li>
     </ul>
   </div>
 </div>`
 };
-
 
 
 function generateMarkup(teamMembers) {
