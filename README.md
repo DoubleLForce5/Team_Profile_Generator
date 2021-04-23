@@ -1,7 +1,9 @@
 # Team Profile Generator
 
-## Description
+## Description:
 This application was created to give managers easy access to their team's contact information. 
+
+![photo](https://user-images.githubusercontent.com/73543476/115155121-10805c00-a044-11eb-8aa9-b7b947f35a02.png)
 
 ## Installation / Usage Instructions: 
 - To utilize this application you will need Node.js.
@@ -24,7 +26,7 @@ This application was created to give managers easy access to their team's contac
 - HTML
 - CSS
 
-## Test 
+## Test: 
 This application was created using test-driven development. 
 You can run these tests by going to the test folder, opening an integrated terminal, and typing in "npm test".
 
