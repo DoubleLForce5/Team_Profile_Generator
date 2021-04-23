@@ -6,7 +6,7 @@ const fs = require('fs');
 const teams = require('./src/Team')
 
 // empty array to push team into 
-teamMembers = [];
+const teamMembers = [];
 
 const managerQuestions = () => {
   inquirer
@@ -128,7 +128,7 @@ function employeeType(){
         break;
         case 'Intern': internQuestions();
         break;
-        default: writeToFile('dist/index.html', teams(teamMembers))
+        default: checkForDistFolder();
       }
     })
 }
@@ -140,5 +140,15 @@ function writeToFile(fileName, data) {
     console.log(data)
   });
 };
+
+function checkForDistFolder () {
+  if (fs.existsSync('dist')) {
+    console.log('The path exists.');
+  } else {
+      fs.mkdirSync('dist');
+  }
+  writeToFile('dist/index.html', teams(teamMembers))
+};
+
 
 managerQuestions();
