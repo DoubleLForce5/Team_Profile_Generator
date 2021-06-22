@@ -38,7 +38,7 @@ return ` <div class="card m-1 shadow p-3 mb-5 bg-white rounded team-member-card"
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${Manager.getId()}</li>
     <li class="list-group-item">Email:<a href="mailto:${Manager.getEmail()}"> ${Manager.getEmail()}</a></li>
-    <li class="list-group-item">office number: ${Manager.getOfficeNumber()}</li>
+    <li class="list-group-item">Office number: ${Manager.getOfficeNumber()}</li>
   </ul>
 </div>
 </div>`
