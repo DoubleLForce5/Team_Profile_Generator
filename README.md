@@ -1,11 +1,12 @@
 # Team Profile Generator
 
-## Description:
+## Description
 This application was created to give managers easy access to their team's contact information. 
 
-![photo](https://user-images.githubusercontent.com/73543476/115155121-10805c00-a044-11eb-8aa9-b7b947f35a02.png)
+<img width="1049" alt="Screen Shot 2021-06-22 at 10 21 31 AM" src="https://user-images.githubusercontent.com/73543476/122952653-c36e7e00-d343-11eb-8484-60e77e7e4fae.png">
 
-## Installation / Usage instructions: 
+
+## Installation / Usage instructions
 - To utilize this application you will need Node.js.
 - Clone this repository and open it within VS Code or any text editor of your choosing.
 - Right click on the index.js file within your explorer dock and select "open in integrated terminal"
