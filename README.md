@@ -9,7 +9,7 @@ This application was created to give managers easy access to their team's contac
 ## Installation / Usage instructions
 - To utilize this application you will need Node.js.
 - Clone this repository and open it within VS Code or any text editor of your choosing.
-- Right click on the index.js file within your explorer dock and select "open in integrated terminal"
+- Right-click on the index.js file within your explorer dock and select "open in integrated terminal"
 - In your terminal type 'NPM install' and hit enter. 
 - Upon completion of the installation mentioned above, type 'node index.js' into the terminal, hit enter, and you will begin to receive a series of prompts.
 - Once you have completed the series of prompts your team profile will be generated. 
